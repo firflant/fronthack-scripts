@@ -26,7 +26,7 @@ toggleDraw();
 function loadDevStyles() {
   var newSS=document.createElement('link');
   newSS.rel='stylesheet';
-  newSS.href=window.location.origin + "/dev-scripts/dev.css";
+  newSS.href=window.location.origin + "/dev-assets/styles.css";
   document.getElementsByTagName("head")[0].appendChild(newSS);
 }
 
@@ -74,19 +74,19 @@ function createToggler() {
 // Create canvas and populate it with conten if there is any.
 //--------------------------------------------------------------------------------
 function createCanvas() {
-  var canvasUrl = document.querySelector('head link[rel="import"]').getAttribute('href')
+  // var canvasUrl = document.querySelector('head link[rel="import"]').getAttribute('href')
   var canvas = document.createElement("div");
   canvas.id = "fronthack-canvas";
-  var request = new XMLHttpRequest();
-  request.open('GET', canvasUrl, true);
-  request.send(null);
-  request.onreadystatechange = function () {
-    if (request.readyState === 4 && request.status === 200) {
-      if (request.responseText) {
-        canvas.innerHTML = request.responseText;
-      }
-    }
-  }
+  // var request = new XMLHttpRequest();
+  // request.open('GET', canvasUrl, true);
+  // request.send(null);
+  // request.onreadystatechange = function () {
+  //   if (request.readyState === 4 && request.status === 200) {
+  //     if (request.responseText) {
+  //       canvas.innerHTML = request.responseText;
+  //     }
+  //   }
+  // }
   document.body.appendChild(canvas);
 }
 

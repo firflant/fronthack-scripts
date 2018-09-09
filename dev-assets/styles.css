@@ -1,11 +1,3 @@
-/* Store designs in `designs`folder in jpg/png extensions and paste its
-   URL into proper modifier classes here.
-
-   Add following code at the end of the compared html file
-   (ex. src/index.html):
-   <div class="designs designs--name"></div>
-*/
-
 :root {
   --designs-width: 1280px;
   --gray-dark: #242424;
