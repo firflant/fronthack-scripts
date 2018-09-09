@@ -1,0 +1,14 @@
+{
+  "name": "fronthack-scripts",
+  "version": "0.0.1",
+  "description": "Development scripts for React projects bootstrapped with Fronthack",
+  "main": "index.js",
+  "repository": "https://github.com/frontcraft/fronthack.git",
+  "author": "Michal Kokocinski <michal@kokocinski.me>",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^7.0.0",
+    "get-installed-path": "^4.0.8",
+    "ncp": "^2.0.0"
+  }
+}
