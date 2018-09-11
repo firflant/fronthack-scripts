@@ -28,6 +28,10 @@ function loadDevStyles() {
   newSS.rel='stylesheet';
   newSS.href=window.location.origin + "/dev-assets/styles.css";
   document.getElementsByTagName("head")[0].appendChild(newSS);
+  var newSS=document.createElement('link');
+  newSS.rel='stylesheet';
+  newSS.href=window.location.origin + "/designs/connect-designs.css";
+  document.getElementsByTagName("head")[0].appendChild(newSS);
 }
 
 
