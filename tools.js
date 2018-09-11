@@ -13,8 +13,6 @@ var pageName = (window.location.pathname === '/') ? "index" : window.location.pa
   .replace(/^\//, '')
   .replace(/[\/\\]/g, '-')
   .replace(/\/|.html/g, "");
-console.log('TCL: window.location.pathname', window.location.pathname);
-console.log('TCL: pageName', pageName);
 
 
 loadDevStyles();
@@ -84,19 +82,21 @@ function createToggler() {
 // Create canvas and populate it with conten if there is any.
 //--------------------------------------------------------------------------------
 function createCanvas() {
-  // var canvasUrl = document.querySelector('head link[rel="import"]').getAttribute('href')
+  var canvasUrl = `${url}designs/canvas-${pageName}.html`;
   var canvas = document.createElement("div");
   canvas.id = "fronthack-canvas";
-  // var request = new XMLHttpRequest();
-  // request.open('GET', canvasUrl, true);
-  // request.send(null);
-  // request.onreadystatechange = function () {
-  //   if (request.readyState === 4 && request.status === 200) {
-  //     if (request.responseText) {
-  //       canvas.innerHTML = request.responseText;
-  //     }
-  //   }
-  // }
+  var request = new XMLHttpRequest();
+  request.open('GET', canvasUrl, true);
+  request.send(null);
+  request.onreadystatechange = function () {
+    request.onreadystatechange = function () {
+      if (request.readyState === 4 && request.status === 200) {
+        if (request.responseText) {
+          canvas.innerHTML = request.responseText;
+        }
+      }
+    }
+  }
   document.body.appendChild(canvas);
 }
 
@@ -109,7 +109,7 @@ function createDownloadButton() {
   download.style.display = 'none';
   download.id = 'fronthack-download';
   download.innerHTML = 'Save canvas';
-  download.setAttribute('onclick', 'alert(\'To save canvas, copy the "drawed-canvas-' + pageName + '.html" file  to "scr/dev-scripts" folder. File will be downloaded now.\')');
+  download.setAttribute('onclick', 'alert(\'To save the canvas, copy downloaded file to a "designs" directory. Restarting the server might be required.\')');
   document.body.appendChild(download);
 }
 
@@ -205,7 +205,7 @@ function generateDownload() {
   if (canvas.hasChildNodes()) {
     var drawedContent = canvas.innerHTML;
     download.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(drawedContent));
-    download.setAttribute('download', 'drawed-canvas-' + pageName + '.html');
+    download.setAttribute('download', 'canvas-' + pageName + '.html');
     download.style.display = 'block';
   }
 }
