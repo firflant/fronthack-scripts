@@ -9,7 +9,13 @@
 // Define variables that must have a global scope.
 var canvas = download = null;
 var url = window.location.href
-var pageName = (window.location.pathname === '/') ? "index" : window.location.pathname.replace(/\/|.html/g, "")
+var pageName = (window.location.pathname === '/') ? "index" : window.location.pathname
+  .replace(/^\//, '')
+  .replace(/[\/\\]/g, '-')
+  .replace(/\/|.html/g, "");
+console.log('TCL: window.location.pathname', window.location.pathname);
+console.log('TCL: pageName', pageName);
+
 
 loadDevStyles();
 setBodyClass();
