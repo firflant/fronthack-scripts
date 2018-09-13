@@ -1,5 +1,11 @@
-// FRONTHACK DEVELOPMENT SCRIPTS
+// FRONTHACK DEVELOPMENT TOOLS
+//
+// It is written in vanilla JS to be universal - be able to use with webpack and
+// static pages as well.
 
+require('./dev-assets/styles.css');
+require('./dev-assets/icons/code.png');
+require('./dev-assets/icons/picture-o.png');
 
 
 //================================================================================
@@ -7,7 +13,7 @@
 //================================================================================
 
 // Define variables that must have a global scope.
-var canvas = download = null;
+var canvas, download = null;
 var url = window.location.href
 var pageName = (window.location.pathname === '/') ? "index" : window.location.pathname
   .replace(/^\//, '')
@@ -175,9 +181,7 @@ function toggleDraw() {
       element.classList.remove('drawing');
       element = null;
       generateDownload();
-      console.log("finsihed draw.");
     } else {
-      console.log("begun draw.");
       mouse.startX = e.pageX;
       mouse.startY = e.pageY;
       element = document.createElement('div');
