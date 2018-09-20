@@ -3,9 +3,11 @@
 // It is written in vanilla JS to be universal - be able to use with webpack and
 // static pages as well.
 
-require('./dev-assets/styles.css');
-require('./dev-assets/icons/code.png');
-require('./dev-assets/icons/picture-o.png');
+if (typeof require === "function") {
+  require('./dev-assets/styles.css');
+  require('./dev-assets/icons/code.png');
+  require('./dev-assets/icons/picture-o.png');
+}
 
 
 //================================================================================
