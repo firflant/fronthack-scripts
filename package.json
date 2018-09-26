@@ -1,10 +1,13 @@
 {
   "name": "fronthack-scripts",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Development scripts for projects bootstrapped with Fronthack",
   "main": "index.js",
-  "repository": "https://github.com/frontcraft/fronthack.git",
+  "repository": "https://github.com/frontcraft/fronthack-scripts.git",
   "author": "Michal Kokocinski <michal@kokocinski.me>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frontcraft/fronthack/issues"
+  },
   "dependencies": {}
 }

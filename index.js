@@ -90,7 +90,7 @@ function createToggler() {
 // Create canvas and populate it with conten if there is any.
 //--------------------------------------------------------------------------------
 function createCanvas() {
-  var canvasUrl = `${url}designs/canvas-${pageName}.html`;
+  var canvasUrl = url + 'designs/canvas-' + pageName + '.html';
   var canvas = document.createElement("div");
   canvas.id = "fronthack-canvas";
   var request = new XMLHttpRequest();
