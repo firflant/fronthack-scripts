@@ -7,6 +7,8 @@ if (typeof require === "function") {
   require('./dev-assets/styles.css');
   require('./dev-assets/icons/code.png');
   require('./dev-assets/icons/picture-o.png');
+} else {
+  loadDevStyles();
 }
 
 
@@ -23,7 +25,6 @@ var pageName = (window.location.pathname === '/') ? "index" : window.location.pa
   .replace(/\/|.html/g, "");
 
 
-loadDevStyles();
 setBodyClass();
 creadeDesigns();
 createToggler();
