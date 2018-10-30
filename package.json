@@ -1,6 +1,6 @@
 {
   "name": "fronthack-scripts",
-  "version": "0.0.12",
+  "version": "0.1.0",
   "description": "Development scripts for projects bootstrapped with Fronthack",
   "main": "index.js",
   "repository": "https://github.com/frontcraft/fronthack-scripts.git",

@@ -3,28 +3,22 @@
 // It is written in vanilla JS to be universal - be able to use with webpack and
 // static pages as well.
 
-if (typeof require === "function") {
-  require('./dev-assets/styles.css');
-  require('./dev-assets/icons/code.png');
-  require('./dev-assets/icons/picture-o.png');
-} else {
-  loadDevStyles();
-}
-
 
 //================================================================================
 // Construct design toggler and canvas
 //================================================================================
 
-// Define variables that must have a global scope.
+// Define variables that must exist in a global scope.
 var canvas, download = null;
-var url = window.location.href
+var path = window.location.href
+var staticSubDir = document.getElementsByTagName('meta')[0].getAttribute("class").includes('next') ? '/_next/static' : ''
+var staticUrl = window.location.origin + staticSubDir
 var pageName = (window.location.pathname === '/') ? "index" : window.location.pathname
   .replace(/^\//, '')
   .replace(/[\/\\]/g, '-')
   .replace(/\/|.html/g, "");
 
-
+loadDevStyles();
 setBodyClass();
 creadeDesigns();
 createToggler();
@@ -37,13 +31,13 @@ toggleDraw();
 // Load development stylesheets.
 //--------------------------------------------------------------------------------
 function loadDevStyles() {
-  var newSS=document.createElement('link');
-  newSS.rel='stylesheet';
-  newSS.href=window.location.origin + "/dev-assets/styles.css";
+  var newSS = document.createElement('link');
+  newSS.rel = 'stylesheet';
+  newSS.href = staticUrl + "/dev-assets/styles.css";
   document.getElementsByTagName("head")[0].appendChild(newSS);
-  var newSS=document.createElement('link');
-  newSS.rel='stylesheet';
-  newSS.href=window.location.origin + "/designs/connect-designs.css";
+  var newSS = document.createElement('link');
+  newSS.rel = 'stylesheet';
+  newSS.href = staticUrl + "/designs/connect-designs.css";
   document.getElementsByTagName("head")[0].appendChild(newSS);
 }
 
@@ -91,7 +85,7 @@ function createToggler() {
 // Create canvas and populate it with conten if there is any.
 //--------------------------------------------------------------------------------
 function createCanvas() {
-  var canvasUrl = url + 'designs/canvas-' + pageName + '.html';
+  var canvasUrl = path + 'designs/canvas-' + pageName + '.html';
   var canvas = document.createElement("div");
   canvas.id = "fronthack-canvas";
   var request = new XMLHttpRequest();
@@ -118,7 +112,7 @@ function createDownloadButton() {
   download.style.display = 'none';
   download.id = 'fronthack-download';
   download.innerHTML = 'Save canvas';
-  download.setAttribute('onclick', 'alert(\'To save the canvas, copy downloaded file to a "designs" directory. Restarting the server might be required.\')');
+  download.setAttribute('onclick', 'alert(\'To save the canvas, copy downloaded file to a "designs" directory.\')');
   document.body.appendChild(download);
 }
 
