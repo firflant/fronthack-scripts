@@ -11,7 +11,8 @@
 // Define variables that must exist in a global scope.
 var canvas, download = null;
 var path = window.location.href
-var staticSubDir = document.getElementsByTagName('meta')[0].getAttribute("class").includes('next') ? '/_next/static' : ''
+var metaTagClass = document.getElementsByTagName('meta')[0].getAttribute("class")
+var staticSubDir = (metaTagClass && metaTagClass.includes('next')) ? '/_next/static' : ''
 var staticUrl = window.location.origin + staticSubDir
 var pageName = (window.location.pathname === '/') ? "index" : window.location.pathname
   .replace(/^\//, '')
