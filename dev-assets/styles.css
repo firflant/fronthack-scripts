@@ -1,5 +1,4 @@
 :root {
-  --designs-width: 1280px;
   --gray-dark: #242424;
   --gray-light: #3d3d3d;
 }
@@ -112,8 +111,6 @@
   top: 0;
   left: 50%;
   height: 9999px;
-  width: var(--designs-width);
-  margin: 0 calc(var(--designs-width) / -2);
   background-position: top;
   background-size: contain;
   background-repeat: no-repeat;
@@ -131,5 +128,3 @@
 .show-designs #fronthack-canvas {
   display: block;
 }
-
-/* Modifiers for each html page created by `fronthack design` command. */
